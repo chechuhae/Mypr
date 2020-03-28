@@ -1,0 +1,10 @@
+django-bootstrap4
+nose
+ddt
+Pillow
+django==3.0.3
+django-dbgettext
+python-gettext
+django-jquery
+django-bootstrap-datetimepicker
+django-bootstrap-datepicker-plus

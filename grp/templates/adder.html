@@ -1,0 +1,15 @@
+{% extends 'base_2.html' %}
+{% load static %}
+{% block content %}
+    <div class="container content" style="text-align: center;">
+        <div style="width: 960px; display: inline-block;">
+            <h2>Мои циклы</h2>
+
+            {% for cicle in cicles %}
+        Created at <td>{{ cicle.created }}</td> by <td>{{ cicle.user }}</td> : <td>{{ cicle.last_cicle_first_date }}</td> - <td>{{ cicle.last_cicle_last_date }}</td><a href="correct/{{cicle.id}}">Изменить</a> | <a href="delete/{{cicle.id}}">Удалить</a></td>
+        {% endfor %}
+
+
+        </div>
+    </div>
+{% endblock %}

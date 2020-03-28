@@ -1,0 +1,40 @@
+{% extends 'base_2.html' %}
+{% load static %}
+{% block content %}
+    <div class="container content">
+        <h2>{{ selected_user.get_full_name }}</h2>
+        <div class="row">
+            <div class="col5">
+                {% if selected_user.profile.avatar.name %}
+                    <img src="{{ selected_user.profile.avatar.url }}"
+                         height = "50 widht = "50" class="avatar-img
+                    img-thumbnail">
+                {% else %}
+                    <img src="{% static 'img/User.png' %}" height = "50" widht = "50" class="avatar-img img-thumbnail">
+                {% endif %}
+                <br>
+                <br>
+            </div>
+            <div class="col">
+                    <dt class="col-sm-3 text-right">Имя: {{ selected_user.profile.user_name }}</dt>
+                    <dt class="col-sm-3 text-right">Фамилия: {{ selected_user.profile.user_surname }}</dt>
+                    <dt class="col-sm-3 text-right">Email: {{ selected_user.email }}</dt>
+                    <dt class="col-sm-3 text-right">Город: {{ selected_user.profile.city }}</dt>
+                    <dt class="col-sm-3 text-right">Дата рождения: {{ selected_user.profile.birth_date|date:"d M Y" }}</dt>
+            </div>
+            <div class="col5">
+            <dt class="col-sm-3 text-center">До начала цикла осталось дней: {{ selected_user.profile.how_long }}</dt>
+            </div>
+                </div>
+        <div style="display: inline-block; width: 400px;">
+            <h2>Мой цикл</h2>
+            <form action="." method="post" class="bootstrap-form" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{ cicle_form.as_p }}
+                <input type="submit" class="btn btn-success" value="Сохранить">
+            </form>
+        </div>
+        </div>
+
+    </div>
+{% endblock %}
